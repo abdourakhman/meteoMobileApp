@@ -4,12 +4,13 @@ import * as Location from 'expo-location';
 import axios from 'axios';
 import CurrentWeather from './components/CurrentWeather';
 import Forecasts from './components/Forecasts';
+import 'dotenv/config'
 
 export default function App(){
   const [data, setData] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [loading, setLoading] = useState(true);
-  const ApiURL = (lat, lon) => `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=456f620603562a83d989d2da0a7cea0b&units=metric&lang=fr`;
+  const ApiURL = (lat, lon) => `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${process.env.API_URL} &units=metric&lang=fr`;
 
   useEffect(
     ()=>{
